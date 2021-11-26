@@ -5,4 +5,4 @@ export const navigationTemplate = () => (
         <a class="trip-tabs__btn" href="#">Stats</a>
     </nav>
   `
-)
+);
