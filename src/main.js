@@ -30,7 +30,3 @@ renderTemplate(eventListContainer, addCardTemplate(), 'beforeend');
 for(let i = 0; i < 3; i++) {
     renderTemplate(eventListContainer, eventItemTemplate(), 'beforeend');
 }
-
-
-
-
