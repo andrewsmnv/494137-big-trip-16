@@ -9,9 +9,9 @@ import { eventsList } from './view/eventsList';
 
 const renderTemplate = (container, template, position) => {
   container.insertAdjacentHTML(position, template);
-}
+};
 
-const mainContainer = document.querySelector('.trip-main')
+const mainContainer = document.querySelector('.trip-main');
 const navigationContainer = document.querySelector('.trip-controls__navigation');
 const filtersContainer = document.querySelector('.trip-controls__filters');
 const contentContainer = document.querySelector('.trip-events');
