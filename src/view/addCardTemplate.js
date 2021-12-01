@@ -5,32 +5,36 @@ export const addCardTemplate = (event) => {
     let string = '';
     let checked = '';
 
-    data.forEach(item => {
-      item == event.type ? checked = 'checked' : checked = ''
+    data.forEach((item) => {
+      if(item === event.type) {
+        checked = 'checked';
+      } else  {
+        checked = '';
+      }
 
       string += `
       <div class="event__type-item">
       <input id="event-type-${item.toLowerCase()}-1" class="event__type-input  visually-hidden" type="radio" name="event-type" value="${item.toLowerCase()}" ${checked}>
       <label class="event__type-label  event__type-label--${item.toLowerCase()}" for="event-type-${item.toLowerCase()}-1">${item}</label>
-      </div>`
-    })
-    return string
-  }
+      </div>`;
+    });
+    return string;
+  };
 
   const generateDestinationList = () => {
     let string = '';
 
-    CITIES_ARRAY.forEach(item => {
-      string += `<option value="${item}"></option>`
-    })
+    CITIES_ARRAY.forEach((item) => {
+      string += `<option value="${item}"></option>`;
+    });
     return string;
-  }
+  };
 
   const generateOffersList = () => {
     let string = '';
     const data = createOffersArray(4);
 
-    data.forEach(item => {
+    data.forEach((item) => {
       string += `
       <div class="event__offer-selector">
       <input class="event__offer-checkbox  visually-hidden" id="event-offer-${item.title}-1" type="checkbox" name="event-offer-${item.title}"}>
@@ -39,20 +43,19 @@ export const addCardTemplate = (event) => {
         &plus;&euro;&nbsp;
         <span class="event__offer-price">${item.price}</span>
       </label>
-      </div>`
-    })
+      </div>`;
+    });
     return string;
-  }
+  };
 
   const generatePhotosList = (data)  => {
     let string = '';
 
-    data.forEach(item => {
-      console.log(item)
-      string += `<img class="event__photo" src="${item.src}" alt="Event photo">`
-    })
+    data.forEach((item) => {
+      string += `<img class="event__photo" src="${item.src}" alt="Event photo">`;
+    });
     return string;
-  }
+  };
 
   return `
     <li class="trip-events__item">
@@ -124,5 +127,5 @@ export const addCardTemplate = (event) => {
                 </section>
               </form>
               </li>
-  `
-}
+  `;
+};

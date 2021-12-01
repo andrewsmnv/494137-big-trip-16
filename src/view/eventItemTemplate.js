@@ -1,65 +1,62 @@
 import dayjs from 'dayjs';
 
-const relativeTime = require('dayjs/plugin/relativeTime')
-dayjs.extend(relativeTime);
-
 export const eventItemTemplate = (item) => {
   const isFavorite = () => {
-    if(item.is_favorite == true) {
-      return 'active'
+    if(item.isFavorite === true) {
+      return 'active';
     }
-  }
+  };
 
   const generateOffersList = () => {
     let string = '';
-    item.offers.forEach(offer => {
+    item.offers.forEach((offer) => {
       string += ` <li class="event__offer">
                 <span class="event__offer-title">${offer.title}</span>
                 &plus;&euro;&nbsp;
                 <span class="event__offer-price">${offer.price}</span>
-                </li>`
-    })
+                </li>`;
+    });
     return string;
-  }
+  };
 
   const generateEventDuration = () => {
-    const timeFrame = dayjs(item.date_to).diff(dayjs(item.date_from), 'minutes')
+    const timeFrame = dayjs(item.dateTo).diff(dayjs(item.dateFrom), 'minutes');
     return timeFrame;
-  }
+  };
 
   const generateEventTimeFromTo = (data) => {
-    const time = dayjs(data).format('HH:mm')
+    const time = dayjs(data).format('HH:mm');
     return time;
-  }
+  };
 
   const generateEventMonth = (data) => {
-    const date = dayjs(data).format('MMM DD')
+    const date = dayjs(data).format('MMM DD');
     return date;
-  }
+  };
 
   const generateTimeDate = (data) => {
-    const date = dayjs(data).format('YYYY-MM-DDTHH:mm')
+    const date = dayjs(data).format('YYYY-MM-DDTHH:mm');
     return date;
-  }
+  };
 
   return `
   <li class="trip-events__item">
     <div class="event">
-      <time class="event__date" datetime="2019-03-18">${generateEventMonth(item.date_to)}</time>
+      <time class="event__date" datetime="2019-03-18">${generateEventMonth(item.dateTo)}</time>
       <div class="event__type">
         <img class="event__type-icon" width="42" height="42" src="img/icons/${item.type}.png" alt="Event type icon">
       </div>
       <h3 class="event__title">${item.type} ${item.destination.name}</h3>
       <div class="event__schedule">
         <p class="event__time">
-          <time class="event__start-time" datetime="${generateTimeDate(item.date_from)}">${generateEventTimeFromTo(item.date_from)}</time>
+          <time class="event__start-time" datetime="${generateTimeDate(item.dateFrom)}">${generateEventTimeFromTo(item.dateFrom)}</time>
           &mdash;
-          <time class="event__end-time" datetime="${generateTimeDate(item.date_to)}">${generateEventTimeFromTo(item.date_to)}</time>
+          <time class="event__end-time" datetime="${generateTimeDate(item.dateTo)}">${generateEventTimeFromTo(item.dateTo)}</time>
         </p>
         <p class="event__duration">${generateEventDuration()}M</p>
       </div>
       <p class="event__price">
-        &euro;&nbsp;<span class="event__price-value">${item.base_price}</span>
+        &euro;&nbsp;<span class="event__price-value">${item.basePrice}</span>
       </p>
       <h4 class="visually-hidden">Offers:</h4>
       <ul class="event__selected-offers">
@@ -76,5 +73,5 @@ export const eventItemTemplate = (item) => {
       </button>
     </div>
   </li>
-`
-}
+`;
+};

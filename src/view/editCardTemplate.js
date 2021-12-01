@@ -4,43 +4,50 @@ import { flipACoin } from '../utils';
 
 export const editCardTemplate = (event) => {
   const formatTime = (data) => {
-    const date = dayjs(data).format('DD/MM/YY HH:mm')
+    const date = dayjs(data).format('DD/MM/YY HH:mm');
     return date;
-  }
+  };
 
   const generateEventTypeList = (data) => {
     let string = '';
     let checked = '';
 
-    data.forEach(item => {
-
-      item == event.type ? checked = 'checked' : checked = ''
+    data.forEach((item) => {
+      if(item === event.type) {
+        checked = 'checked';
+      } else  {
+        checked = '';
+      }
 
       string += `
       <div class="event__type-item">
       <input id="event-type-${item.toLowerCase()}-1" class="event__type-input  visually-hidden" type="radio" name="event-type" value="${item.toLowerCase()}" ${checked}>
       <label class="event__type-label  event__type-label--${item.toLowerCase()}" for="event-type-${item.toLowerCase()}-1">${item}</label>
-      </div>`
-    })
-    return string
-  }
+      </div>`;
+    });
+    return string;
+  };
 
   const generateDestinationList = (data) => {
     let string = '';
 
-    CITIES_ARRAY.forEach(item => {
-      string += `<option value="${item}"></option>`
-    })
+    data.forEach((item) => {
+      string += `<option value="${item}"></option>`;
+    });
 
     return string;
-  }
+  };
 
   const generateOffersList = (data) => {
     let string = '';
     let checked = '';
 
-    data.offers.forEach(item => {
-      flipACoin() ? checked = 'checked' : checked = ''
+    data.offers.forEach((item) => {
+      if(flipACoin()) {
+        checked = 'checked';
+      } else {
+        checked = '';
+      }
 
       string += `
       <div class="event__offer-selector">
@@ -50,11 +57,11 @@ export const editCardTemplate = (event) => {
         &plus;&euro;&nbsp;
         <span class="event__offer-price">${item.price}</span>
       </label>
-      </div>`
-    })
+      </div>`;
+    });
 
     return string;
-  }
+  };
 
   return `
   <li class="trip-events__item">
@@ -88,10 +95,10 @@ export const editCardTemplate = (event) => {
 
                 <div class="event__field-group  event__field-group--time">
                   <label class="visually-hidden" for="event-start-time-1">From</label>
-                  <input class="event__input  event__input--time" id="event-start-time-1" type="text" name="event-start-time" value="${formatTime(event.date_from)}">
+                  <input class="event__input  event__input--time" id="event-start-time-1" type="text" name="event-start-time" value="${formatTime(event.dateFrom)}">
                   &mdash;
                   <label class="visually-hidden" for="event-end-time-1">To</label>
-                  <input class="event__input  event__input--time" id="event-end-time-1" type="text" name="event-end-time" value="${formatTime(event.date_to)}">
+                  <input class="event__input  event__input--time" id="event-end-time-1" type="text" name="event-end-time" value="${formatTime(event.dateTo)}">
                 </div>
 
                 <div class="event__field-group  event__field-group--price">
@@ -99,7 +106,7 @@ export const editCardTemplate = (event) => {
                     <span class="visually-hidden">Price</span>
                     &euro;
                   </label>
-                  <input class="event__input  event__input--price" id="event-price-1" type="text" name="event-price" value="${event.base_price}">
+                  <input class="event__input  event__input--price" id="event-price-1" type="text" name="event-price" value="${event.basePrice}">
                 </div>
 
                 <button class="event__save-btn  btn  btn--blue" type="submit">Save</button>
@@ -124,5 +131,5 @@ export const editCardTemplate = (event) => {
               </section>
             </form>
             </li>
-`
-}
+`;
+};
