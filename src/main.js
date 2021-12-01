@@ -2,10 +2,11 @@ import { tripInfoTemplate } from './view/tripInfoTemplate';
 import { navigationTemplate } from './view/navigationTemplate';
 import { filtersTemplate } from './view/filtersTemplate';
 import { sortTemplate } from './view/sortTemplate';
-import { editCardTemplate } from './view/editCardTemplate.js';
-import { addCardTemplate } from './view/addCardTemplate.js';
+import { editCardTemplate } from './view/editCardTemplate.js';import { addCardTemplate } from './view/addCardTemplate.js';
 import { eventItemTemplate } from './view/eventItemTemplate';
 import { eventsList } from './view/eventsList';
+import { tripPointsArray } from './createMockData';
+import { createMockData } from './createMockData';
 
 const renderTemplate = (container, template, position) => {
   container.insertAdjacentHTML(position, template);
@@ -24,9 +25,20 @@ renderTemplate(contentContainer, eventsList(), 'beforeend');
 
 const eventListContainer = document.querySelector('.trip-events__list');
 
-renderTemplate(eventListContainer, editCardTemplate(), 'beforeend');
-renderTemplate(eventListContainer, addCardTemplate(), 'beforeend');
+const pointsArray = [];
 
-for(let i = 0; i < 3; i++) {
-  renderTemplate(eventListContainer, eventItemTemplate(), 'beforeend');
+for(let i = 0; i < 20; i++) {
+  pointsArray.push(createMockData());
 }
+
+const generateMainContent = (data) => {
+  for(let i = 0; i < data.length; i++) {
+    if(i == 0) {
+      renderTemplate(eventListContainer, editCardTemplate(data[i]), 'beforeend');
+    } else {
+      renderTemplate(eventListContainer, eventItemTemplate(data[i]), 'beforeend');
+    }
+  }
+}
+
+generateMainContent(pointsArray);
