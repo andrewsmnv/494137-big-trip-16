@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import { TRIP_POINTS_ARRAY, CITIES_ARRAY } from '../createMockData';
-import { flipACoin } from '../utils';
+import { getRandomInt } from '../utils';
 
 export const editCardTemplate = (event) => {
   const formatTime = (data) => {
@@ -15,7 +15,7 @@ export const editCardTemplate = (event) => {
     data.forEach((item) => {
       if(item === event.type) {
         checked = 'checked';
-      } else  {
+      } else {
         checked = '';
       }
 
@@ -43,7 +43,7 @@ export const editCardTemplate = (event) => {
     let checked = '';
 
     data.offers.forEach((item) => {
-      if(flipACoin()) {
+      if(getRandomInt(0,1)) {
         checked = 'checked';
       } else {
         checked = '';

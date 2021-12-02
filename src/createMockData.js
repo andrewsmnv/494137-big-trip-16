@@ -1,4 +1,4 @@
-import { flipACoin, getRandomInt } from './utils';
+import { getRandomInt } from './utils';
 import dayjs from 'dayjs';
 
 export const TRIP_POINTS_ARRAY = ['Taxi', 'Bus', 'Train', 'Ship', 'Drive', 'Flight', 'Check-in', 'Sightseeing', 'Restaurant'];
@@ -68,7 +68,7 @@ export const createMockData = (id) => {
       photos: createPhotosArray(),
     },
     id: id,
-    isFavorite: flipACoin(),
+    isFavorite: Boolean(getRandomInt(0,1)),
     offers: createOffersArray(getRandomInt(1, 4)),
     type: TRIP_POINTS_ARRAY[getRandomInt(0, TRIP_POINTS_ARRAY.length - 1)],
   };

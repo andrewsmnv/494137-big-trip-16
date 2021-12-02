@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 
 export const eventItemTemplate = (item) => {
   const isFavorite = () => {
-    if(item.isFavorite === true) {
+    if(item.isFavorite) {
       return 'active';
     }
   };

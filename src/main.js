@@ -27,7 +27,7 @@ const eventListContainer = document.querySelector('.trip-events__list');
 const pointsArray = [];
 
 for(let i = 0; i < 20; i++) {
-  pointsArray.push(createMockData());
+  pointsArray.push(createMockData(i));
 }
 
 const generateMainContent = (data) => {
