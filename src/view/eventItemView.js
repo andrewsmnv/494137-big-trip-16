@@ -1,31 +1,18 @@
 import dayjs from 'dayjs';
 import { createElement } from '../render';
 
+const generateEventDuration = (data) => dayjs(data.dateTo).diff(dayjs(data.dateFrom), 'minutes');
+
+const generateEventTimeFromTo = (data) => dayjs(data).format('HH:mm');
+
+const generateEventMonth = (data) => dayjs(data).format('MMM DD');
+
+const generateTimeDate = (data) => dayjs(data).format('YYYY-MM-DDTHH:mm');
+
 const isFavorite = (data) => {
   if(data) {
     return 'active';
   }
-};
-
-
-const generateEventDuration = (data) => {
-  const timeFrame = dayjs(data.dateTo).diff(dayjs(data.dateFrom), 'minutes');
-  return timeFrame;
-};
-
-const generateEventTimeFromTo = (data) => {
-  const time = dayjs(data).format('HH:mm');
-  return time;
-};
-
-const generateEventMonth = (data) => {
-  const date = dayjs(data).format('MMM DD');
-  return date;
-};
-
-const generateTimeDate = (data) => {
-  const date = dayjs(data).format('YYYY-MM-DDTHH:mm');
-  return date;
 };
 
 const generateOffersList = (data) => {
@@ -76,7 +63,7 @@ const createEventItemMarkup = (eventData) => (
   </li>`
 );
 
-export default class eventItem  {
+export default class EventItemView  {
   constructor(event) {
     this.event = event;
   }

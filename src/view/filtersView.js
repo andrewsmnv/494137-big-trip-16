@@ -19,7 +19,7 @@ const createFiltersMarkup = () => (
     </form>`
 );
 
-export default class filters {
+export default class FiltersView {
   #element = null;
 
   get element() {

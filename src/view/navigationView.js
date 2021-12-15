@@ -7,7 +7,7 @@ const createNavigationMarkup = () => (
     </nav>`
 );
 
-export default class navigation {
+export default class NavigationView {
   #element = null;
 
   get element() {

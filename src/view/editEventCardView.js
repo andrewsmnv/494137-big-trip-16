@@ -3,21 +3,14 @@ import { TRIP_POINTS_ARRAY, CITIES_ARRAY } from '../createMockData';
 import { getRandomInt } from '../utils';
 import { createElement } from '../render';
 
-const formatTime = (data) => {
-  const date = dayjs(data).format('DD/MM/YY HH:mm');
-  return date;
-};
+const formatTime = (data) => dayjs(data).format('DD/MM/YY HH:mm');
 
 const generateEventTypeList = (data) => {
   let string = '';
   let checked = '';
 
   data.forEach((item) => {
-    if(item === data.type) {
-      checked = 'checked';
-    } else {
-      checked = '';
-    }
+    checked = item === data.type ? 'checked' : '';
 
     string += `
     <div class="event__type-item">
@@ -43,11 +36,7 @@ const generateOffersList = (data) => {
   let checked = '';
 
   data.forEach((item) => {
-    if(getRandomInt(0,1)) {
-      checked = 'checked';
-    } else {
-      checked = '';
-    }
+    checked = getRandomInt(0,1) ? 'checked' : '';
 
     string += `
     <div class="event__offer-selector">
@@ -133,8 +122,7 @@ const createEditCardMarkup = (event) => (
   </li>`
 );
 
-
-export default class editEventCard {
+export default class EditEventCardView {
   constructor(event) {
     this.event = event;
   }

@@ -14,8 +14,7 @@ export const createTripInfoMarkup = () => (
   </section>`
 );
 
-
-export default class tripIfo {
+export default class TripInfoView {
   #element = null;
 
   get element() {

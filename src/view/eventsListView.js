@@ -2,7 +2,7 @@ import { createElement } from '../render';
 
 const createEventsListMarkup = () => '<ul class="trip-events__list"></ul>';
 
-export default class eventsList {
+export default class EventsListView {
   #element = null;
 
   get element() {

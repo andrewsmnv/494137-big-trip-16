@@ -1,4 +1,5 @@
 import { createElement } from '../render';
+
 export const createSortMarkup = () => (
   `<form class="trip-events__trip-sort  trip-sort" action="#" method="get">
             <div class="trip-sort__item  trip-sort__item--day">
@@ -28,8 +29,7 @@ export const createSortMarkup = () => (
           </form>`
 );
 
-
-export default class sort {
+export default class SortView {
   #element = null;
 
   get element() {

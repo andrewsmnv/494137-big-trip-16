@@ -1,11 +1,11 @@
-import eventItem from './view/eventItem';
-import editEventCard from './view/editEventCard';
+import eventItemView from './view/eventItemView';
+import editEventCardView from './view/editEventCardView';
 import { renderElement } from './render';
 import { RenderPosition } from './render';
 
 export const renderEvent = (eventElement, task) => {
-  const eventComponent = new eventItem(task);
-  const eventEditComponent = new editEventCard(task);
+  const eventComponent = new eventItemView(task);
+  const eventEditComponent = new editEventCardView(task);
 
   const replaceCardToForm = () => {
     eventElement.replaceChild(eventEditComponent.element, eventComponent.element);

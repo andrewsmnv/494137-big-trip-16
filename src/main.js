@@ -1,8 +1,8 @@
-import tripInfo from './view/tripInfo';
-import navigation from './view/navigation';
-import filters from './view/filters';
-import sort from './view/sort';
-import eventsList from './view/eventsList';
+import TripInfoView from './view/tripInfoView';
+import NavigationView from './view/navigationView';
+import FiltersView from './view/filtersView';
+import SortView from './view/sortView';
+import EventsListView from './view/eventsListView';
 import { createMockData } from './createMockData';
 import { renderElement } from './render';
 import { RenderPosition } from './render';
@@ -13,11 +13,11 @@ const navigationContainer = document.querySelector('.trip-controls__navigation')
 const filtersContainer = document.querySelector('.trip-controls__filters');
 const contentContainer = document.querySelector('.trip-events');
 
-renderElement(mainContainer, new tripInfo().element, 'afterbegin');
-renderElement(navigationContainer, new navigation().element, 'beforeend');
-renderElement(filtersContainer, new filters().element, 'beforeend');
-renderElement(contentContainer, new sort().element, 'beforeend');
-renderElement(contentContainer, new eventsList().element, 'beforeend');
+renderElement(mainContainer, new TripInfoView().element, 'afterbegin');
+renderElement(navigationContainer, new NavigationView().element, 'beforeend');
+renderElement(filtersContainer, new FiltersView().element, 'beforeend');
+renderElement(contentContainer, new SortView().element, 'beforeend');
+renderElement(contentContainer, new EventsListView().element, 'beforeend');
 
 const eventListContainer = document.querySelector('.trip-events__list');
 
