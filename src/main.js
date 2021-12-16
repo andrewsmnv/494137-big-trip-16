@@ -1,26 +1,23 @@
-import { tripInfoTemplate } from './view/tripInfoTemplate';
-import { navigationTemplate } from './view/navigationTemplate';
-import { filtersTemplate } from './view/filtersTemplate';
-import { sortTemplate } from './view/sortTemplate';
-import { editCardTemplate } from './view/editCardTemplate.js';
-import { eventItemTemplate } from './view/eventItemTemplate';
-import { eventsList } from './view/eventsList';
+import TripInfoView from './view/tripInfoView';
+import NavigationView from './view/navigationView';
+import FiltersView from './view/filtersView';
+import SortView from './view/sortView';
+import EventsListView from './view/eventsListView';
 import { createMockData } from './createMockData';
-
-const renderTemplate = (container, template, position) => {
-  container.insertAdjacentHTML(position, template);
-};
+import { renderElement } from './render';
+import { RenderPosition } from './render';
+import { renderEvent } from './renderEvent';
 
 const mainContainer = document.querySelector('.trip-main');
 const navigationContainer = document.querySelector('.trip-controls__navigation');
 const filtersContainer = document.querySelector('.trip-controls__filters');
 const contentContainer = document.querySelector('.trip-events');
 
-renderTemplate(mainContainer, tripInfoTemplate(), 'afterbegin');
-renderTemplate(navigationContainer, navigationTemplate(), 'beforeend');
-renderTemplate(filtersContainer, filtersTemplate(), 'beforeend');
-renderTemplate(contentContainer, sortTemplate(), 'beforeend');
-renderTemplate(contentContainer, eventsList(), 'beforeend');
+renderElement(mainContainer, new TripInfoView().element, 'afterbegin');
+renderElement(navigationContainer, new NavigationView().element, 'beforeend');
+renderElement(filtersContainer, new FiltersView().element, 'beforeend');
+renderElement(contentContainer, new SortView().element, 'beforeend');
+renderElement(contentContainer, new EventsListView().element, 'beforeend');
 
 const eventListContainer = document.querySelector('.trip-events__list');
 
@@ -32,11 +29,7 @@ for(let i = 0; i < 20; i++) {
 
 const generateMainContent = (data) => {
   for(let i = 0; i < data.length; i++) {
-    if(i === 0) {
-      renderTemplate(eventListContainer, editCardTemplate(data[i]), 'beforeend');
-    } else {
-      renderTemplate(eventListContainer, eventItemTemplate(data[i]), 'beforeend');
-    }
+    renderEvent(eventListContainer, data[i], RenderPosition.BEFOREEND);
   }
 };
 
