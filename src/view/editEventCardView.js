@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { TRIP_POINTS_ARRAY, CITIES_ARRAY } from '../createMockData';
 import { getRandomInt } from '../utils';
-import { createElement } from '../render';
+import AbstractView from '../abstractView';
 
 const formatTime = (data) => dayjs(data).format('DD/MM/YY HH:mm');
 
@@ -122,25 +122,23 @@ const createEditCardMarkup = (event) => (
   </li>`
 );
 
-export default class EditEventCardView {
+export default class EditEventCardView extends AbstractView {
   constructor(event) {
+    super();
     this.event = event;
-  }
-
-  #element = null;
-
-  get element() {
-    if (!this.#element) {
-      this.#element = createElement(this.template);
-    }
-    return this.#element;
   }
 
   get template() {
     return createEditCardMarkup(this.event);
   }
 
-  removeElement() {
-    this.#element = null;
+  setFormSubmitHandler = (callback) => {
+    this._callback.formSubmit = callback;
+    this.element.querySelector('form').addEventListener('submit', this.#formSubmitHandler);
+  }
+
+  #formSubmitHandler = (evt) => {
+    evt.preventDefault();
+    this._callback.formSubmit();
   }
 }

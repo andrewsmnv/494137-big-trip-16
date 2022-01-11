@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { createElement } from '../render';
+import AbstractView from '../abstractView';
 
 const generateEventDuration = (data) => dayjs(data.dateTo).diff(dayjs(data.dateFrom), 'minutes');
 
@@ -63,26 +63,24 @@ const createEventItemMarkup = (eventData) => (
   </li>`
 );
 
-export default class EventItemView  {
+export default class EventItemView extends AbstractView {
   constructor(event) {
+    super();
     this.event = event;
-  }
-
-  #element = null;
-
-  get element() {
-    if (!this.#element) {
-      this.#element = createElement(this.template);
-    }
-    return this.#element;
   }
 
   get template() {
     return createEventItemMarkup(this.event);
   }
 
-  removeElement() {
-    this.#element = null;
+  setEditClickHandler = (callback) => {
+    this._callback.editClick = callback;
+    this.element.querySelector('.event__rollup-btn').addEventListener('click', this.#editClickHandler);
+  }
+
+  #editClickHandler = (evt) => {
+    evt.preventDefault();
+    this._callback.editClick();
   }
 }
 

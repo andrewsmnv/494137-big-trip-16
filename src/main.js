@@ -13,11 +13,17 @@ const navigationContainer = document.querySelector('.trip-controls__navigation')
 const filtersContainer = document.querySelector('.trip-controls__filters');
 const contentContainer = document.querySelector('.trip-events');
 
-renderElement(mainContainer, new TripInfoView().element, 'afterbegin');
-renderElement(navigationContainer, new NavigationView().element, 'beforeend');
-renderElement(filtersContainer, new FiltersView().element, 'beforeend');
-renderElement(contentContainer, new SortView().element, 'beforeend');
-renderElement(contentContainer, new EventsListView().element, 'beforeend');
+const tripInfoView = new TripInfoView().element;
+const navigationView = new NavigationView().element;
+const filtersView = new FiltersView().element;
+const sortView = new SortView().element;
+const eventsListView = new EventsListView().element;
+
+renderElement(mainContainer, tripInfoView, 'afterbegin');
+renderElement(navigationContainer, navigationView, 'beforeend');
+renderElement(filtersContainer, filtersView, 'beforeend');
+renderElement(contentContainer, sortView, 'beforeend');
+renderElement(contentContainer, eventsListView, 'beforeend');
 
 const eventListContainer = document.querySelector('.trip-events__list');
 
