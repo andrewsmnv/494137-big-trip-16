@@ -57,7 +57,7 @@ const createTimeString = (later) => {
   return date;
 };
 
-export const createMockData = (id) => {
+export const createMockData = (index) => {
   const data = {
     basePrice: getRandomInt(1, 120),
     dateFrom: createTimeString(),
@@ -67,7 +67,7 @@ export const createMockData = (id) => {
       name: CITIES_ARRAY[getRandomInt(0, CITIES_ARRAY.length - 1)],
       photos: createPhotosArray(),
     },
-    id: id,
+    id: index,
     isFavorite: Boolean(getRandomInt(0,1)),
     offers: createOffersArray(getRandomInt(1, 4)),
     type: TRIP_POINTS_ARRAY[getRandomInt(0, TRIP_POINTS_ARRAY.length - 1)],
