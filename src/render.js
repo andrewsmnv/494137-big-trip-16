@@ -1,4 +1,4 @@
-import AbstractView from './abstractView';
+import AbstractView from './view/abstractView';
 
 export const RENDER_POSITION = {
   BEFOREBEGIN: 'beforebegin',

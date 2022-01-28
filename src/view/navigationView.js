@@ -1,14 +1,14 @@
-import AbstractView from '../abstractView';
+import AbstractView from './abstractView';
 
-const createNavigationMarkup = () => (
+const createNavigationTemplate = () => (
   `<nav class="trip-controls__trip-tabs  trip-tabs">
         <a class="trip-tabs__btn  trip-tabs__btn--active" href="#">Table</a>
         <a class="trip-tabs__btn" href="#">Stats</a>
     </nav>`
 );
 
-export default class NavigationView extends AbstractView{
+export default class NavigationView extends AbstractView {
   get template() {
-    return createNavigationMarkup();
+    return createNavigationTemplate();
   }
 }
