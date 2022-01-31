@@ -20,12 +20,12 @@ const generateOffers = (type) => {
 export const generatePoint = (index) => {
   const type = OFFER_TYPE[getRandomInt(0, OFFER_TYPE.length -1)];
   return {
-    'base_price': getRandomInt(1000, 1500),
-    'date_from': generateDate(),
-    'date_to': generateDate('later'),
+    'basePrice': getRandomInt(1000, 1500),
+    'dateFrom': generateDate(),
+    'dateTo': generateDate('later'),
     'destination': generateDestination(),
     'id': index,
-    'is_favorite': Boolean(getRandomInt(0, 1)),
+    'isFavorite': Boolean(getRandomInt(0, 1)),
     'offers': generateOffers(type),
     'type': type
   };

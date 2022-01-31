@@ -15,7 +15,7 @@ const renderEventOffers = (offers) => {
 };
 
 const renderEventItemTemplate = (point) => {
-  const {date_from: dateFrom, date_to: dateTo, type, destination, offers, is_favorite: isFavorite, base_price: basePrice} = point;
+  const {dateFrom: dateFrom, dateTo: dateTo, type, destination, offers, is_favorite: isFavorite, basePrice: basePrice} = point;
   const template = `<li class="trip-events__item">
     <div class="event">
       <time class="event__date" datetime="2019-03-18">${dayjs(dateFrom).format('MMM DD') }</time>
@@ -52,6 +52,7 @@ const renderEventItemTemplate = (point) => {
 
   return template;
 };
+
 export default class EventItemView extends AbstractView {
   #point = null;
 

@@ -1,7 +1,7 @@
 import {RENDER_POSITION, render, replace, remove} from '../render';
 
 import EditCardView from '../view/addEditCardView/editCardView';
-import EventItemView from './../view/eventItemView';
+import EventItemView from '../view/eventItemView';
 
 const Mode = {
   DEFAULT: 'DEFAULT',
@@ -84,8 +84,7 @@ export default class PointPresenter {
   }
 
   #handleFavoriteClick = () => {
-    // eslint-disable-next-line camelcase
-    this.#changeData({...this.#point, is_favorite: !this.#point.is_favorite});
+    this.#changeData({...this.#point, isFavorite: !this.#point.isFavorite});
   }
 
   #handleFormSubmit = (point) => {

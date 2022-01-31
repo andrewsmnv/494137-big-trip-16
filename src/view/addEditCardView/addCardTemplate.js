@@ -51,10 +51,10 @@ const renderAddCardTemplate = (point, index) => `<li class="trip-events__item">
 
       <div class="event__field-group  event__field-group--time">
         <label class="visually-hidden" for="event-start-time-${index + 1}">From</label>
-        <input class="event__input  event__input--time" id="event-start-time-${index + 1}" type="text" name="event-start-time" value="${dayjs(point.date_from).format('DD/MM/YY hh:mm')}">
+        <input class="event__input  event__input--time" id="event-start-time-${index + 1}" type="text" name="event-start-time" value="${dayjs(point.dateFrom).format('DD/MM/YY hh:mm')}">
         &mdash;
         <label class="visually-hidden" for="event-end-time-${index + 1}">To</label>
-        <input class="event__input  event__input--time" id="event-end-time-${index + 1}" type="text" name="event-end-time" value="${dayjs(point.date_to).format('DD/MM/YY hh:mm')}">
+        <input class="event__input  event__input--time" id="event-end-time-${index + 1}" type="text" name="event-end-time" value="${dayjs(point.dateTo).format('DD/MM/YY hh:mm')}">
       </div>
 
       <div class="event__field-group  event__field-group--price">
@@ -62,7 +62,7 @@ const renderAddCardTemplate = (point, index) => `<li class="trip-events__item">
           <span class="visually-hidden">Price</span>
           &euro;
         </label>
-        <input class="event__input  event__input--price" id="event-price-${index + 1}" type="text" name="event-price" value="${point.base_price}">
+        <input class="event__input  event__input--price" id="event-price-${index + 1}" type="text" name="event-price" value="${point.basePrice}">
       </div>
 
       <button class="event__save-btn  btn  btn--blue" type="submit">Save</button>

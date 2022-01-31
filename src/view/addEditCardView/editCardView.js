@@ -47,7 +47,7 @@ const renderTypeItems = (offerTypes) => {
 };
 
 const renderEditCardTemplate = (point) => {
-  const {date_from: dateFrom, date_to: dateTo, type, destination, offers, base_price: basePrice, id: index} = point;
+  const {dateFrom: dateFrom, dateTo: dateTo, type, destination, offers, basePrice: basePrice, id: index} = point;
   const template = `<li class="trip-events__item">
   <form class="event event--edit" action="#" method="post">
     <header class="event__header">
@@ -181,8 +181,8 @@ export default class EditCardView extends SmartView {
       {
         enableTime: true,
         dateFormat: 'd-m-y H:i',
-        defaultDate: this._data.date_from,
-        onChange: this.#dateFromChangeHandler, // На событие flatpickr передаём наш колбэк
+        defaultDate: this._data.dateFrom,
+        onChange: this.#dateFromChangeHandler,
       },
     );
   }
@@ -193,23 +193,21 @@ export default class EditCardView extends SmartView {
       {
         enableTime: true,
         dateFormat: 'd-m-y H:i',
-        defaultDate: this._data.date_to,
-        onChange: this.#dateToChangeHandler, // На событие flatpickr передаём наш колбэк
+        defaultDate: this._data.dateTo,
+        onChange: this.#dateToChangeHandler,
       },
     );
   }
 
   #dateFromChangeHandler = ([userDate]) => {
     this.updateData({
-      // eslint-disable-next-line camelcase
-      date_from: userDate,
+      dateFrom: userDate,
     }, true);
   }
 
   #dateToChangeHandler = ([userDate]) => {
     this.updateData({
-      // eslint-disable-next-line camelcase
-      date_to: userDate,
+      dateTO: userDate,
     }, true);
   }
 
@@ -219,8 +217,7 @@ export default class EditCardView extends SmartView {
     if (value.length) {
       const price = parseInt(value, 10);
       this.updateData({
-      // eslint-disable-next-line camelcase
-        base_price: price,
+        basePrice: price,
       }, true);
     }
   }
