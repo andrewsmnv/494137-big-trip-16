@@ -1,4 +1,4 @@
-import { DESTINATION_DESCRIPTION } from './../const/destinationDescription';
+import { DESTINATION_DESCRIPTION } from './../const/destination-description';
 import { getRandomInt } from './../utils';
 
 export const createRandomDescription  = (quantity) => {

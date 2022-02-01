@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import { getRandomInt } from './../utils';
 import { offersData } from './offer';
 import { generateDestination } from './destination';
-import { OFFER_TYPE } from './../const/offerType';
+import { OFFER_TYPE } from './../const/offer-type';
 
 const generateDate = (later) => {
   const maxHoursGap = later ? 10 : 4;

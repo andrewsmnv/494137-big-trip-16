@@ -1,4 +1,4 @@
-import { DESTINATIONS } from './../const/destination';
+import { DESTINATIONS } from '../const/destination';
 
 const renderDestionationTemplate = (destination) => (
   `<option value="${destination.name}"></option>`
