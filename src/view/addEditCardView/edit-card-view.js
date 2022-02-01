@@ -1,9 +1,9 @@
-import { OFFER_TYPE } from '../../const/offerType';
+import { OFFER_TYPE } from '../../const/offer-type';
 import { DESTINATIONS } from '../../const/destination';
 import { offersData } from '../../mock/offer';
-import { renderDestionationsTemplate } from '../destinationListTemplate';
-import { renderOfferSectionTempalte } from './offersSectionTemplate';
-import SmartView from './../smartView';
+import { renderDestionationsTemplate } from '../destination-list-template';
+import { renderOfferSectionTempalte } from './offers-section-template';
+import SmartView from '../smart-view';
 import flatpickr from 'flatpickr';
 
 import dayjs from 'dayjs';

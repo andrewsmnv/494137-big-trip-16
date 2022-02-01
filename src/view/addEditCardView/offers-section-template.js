@@ -1,4 +1,4 @@
-import { renderOffers } from './offersTemplate';
+import { renderOffers } from './offers-template';
 
 export const renderOfferSectionTempalte = (offers, index) => {
   if (offers.length) {

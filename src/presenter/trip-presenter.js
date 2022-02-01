@@ -1,13 +1,13 @@
 import {RENDER_POSITION, render} from '../render';
-import {updateItem} from './../utils';
+import {updateItem} from '../utils';
 
-import TripInfoView from '../view/tripInfoView';
-import NavigationView from '../view/navigationView';
-import FiltersView from '../view/filtersView';
-import SortView from '../view/sortView';
-import EventListView from '../view/eventsListView';
-import NoPointsView from '../view/emptyListView';
-import PointPresenter from './pointPresenter';
+import TripInfoView from '../view/trip-info-view';
+import NavigationView from '../view/navigation-view';
+import FiltersView from '../view/filters-view';
+import SortView from '../view/sort-view';
+import EventListView from '../view/events-list-view';
+import NoPointsView from '../view/empty-list-view';
+import PointPresenter from './point-presenter';
 
 export default class TripPresenter {
     #mainContainer = null;

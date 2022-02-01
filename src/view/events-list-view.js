@@ -1,4 +1,4 @@
-import AbstractView from './abstractView';
+import AbstractView from './abstract-view';
 
 const createEventsListMarkup = () => '<ul class="trip-events__list"></ul>';
 

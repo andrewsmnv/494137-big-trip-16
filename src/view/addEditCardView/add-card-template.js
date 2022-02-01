@@ -1,7 +1,7 @@
-import { OFFER_TYPE } from '../../const/offerType';
-import { renderDestionationsTemplate } from '../destinationListTemplate';
-import { renderOfferSectionTempalte } from './offersSectionTemplate';
-import { createElement } from './../../render';
+import { OFFER_TYPE } from '../../const/offer-type';
+import { renderDestionationsTemplate } from '../destination-list-template';
+import { renderOfferSectionTempalte } from './offers-section-template';
+import { createElement } from '../../render';
 
 import dayjs from 'dayjs';
 

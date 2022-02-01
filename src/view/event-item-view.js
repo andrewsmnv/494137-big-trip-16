@@ -1,6 +1,6 @@
-import { renderEventOfferTemplate } from './eventOfferTemplate';
+import { renderEventOfferTemplate } from './event-offer-template';
 import dayjs from 'dayjs';
-import AbstractView from './abstractView';
+import AbstractView from './abstract-view';
 
 const renderEventOffers = (offers) => {
   if (!offers.length) {

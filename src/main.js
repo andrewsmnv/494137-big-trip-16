@@ -1,5 +1,5 @@
 
-import TripPresenter from './presenter/tripPresenter';
+import TripPresenter from './presenter/trip-presenter';
 import { generatePoint } from './mock/point';
 
 const POINT_COUNT = 16;

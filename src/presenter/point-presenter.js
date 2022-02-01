@@ -1,7 +1,7 @@
 import {RENDER_POSITION, render, replace, remove} from '../render';
 
-import EditCardView from '../view/addEditCardView/editCardView';
-import EventItemView from '../view/eventItemView';
+import EditCardView from '../view/addEditCardView/edit-card-view';
+import EventItemView from '../view/event-item-view';
 
 const Mode = {
   DEFAULT: 'DEFAULT',

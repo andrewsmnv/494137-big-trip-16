@@ -1,4 +1,4 @@
-import AbstractView from './abstractView';
+import AbstractView from './abstract-view';
 
 const createNavigationTemplate = () => (
   `<nav class="trip-controls__trip-tabs  trip-tabs">

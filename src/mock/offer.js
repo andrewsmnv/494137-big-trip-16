@@ -1,6 +1,6 @@
 import { getRandomInt } from './../utils';
 import { OFFERS } from './../const/offers';
-import { OFFER_TYPE } from '../const/offerType';
+import { OFFER_TYPE } from '../const/offer-type';
 
 const getOffers = () => OFFERS.filter((item, index) => index <= getRandomInt(0, OFFERS.length - 1));
 
