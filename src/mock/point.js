@@ -4,8 +4,9 @@ import { offersData } from './offer';
 import { generateDestination } from './destination';
 import { OFFER_TYPE } from './../const/offer-type';
 
+
 const generateDate = (later) => {
-  const maxHoursGap = later ? 10 : 4;
+  const maxHoursGap = later ? 30 : 4;
   const minHoursGap = later ? 5 : 1;
   const hoursGap = getRandomInt(minHoursGap, maxHoursGap);
 
