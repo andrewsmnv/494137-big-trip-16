@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = { 
+module.exports = {
     entry: './src/main.js',
     output: {
         filename: 'bundle.js',
@@ -16,6 +16,10 @@ module.exports = {
               test: /\.js$/,
               exclude: /(node_modules)/,
               use: ['babel-loader']
+            },
+            {
+              test: /\.css$/i,
+              use: ['style-loader', 'css-loader']
             }
         ]
     }

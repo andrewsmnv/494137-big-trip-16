@@ -1,12 +1,10 @@
-import { createMockData } from './createMockData';
-import { TripPresenter } from './presenter/tripPresenter';
 
-const POINT_COUNT = 20;
-const points = [];
+import TripPresenter from './presenter/tripPresenter';
+import { generatePoint } from './mock/point';
 
-for(let i = 0; i < POINT_COUNT; i++) {
-  points.push(createMockData(i));
-}
+const POINT_COUNT = 16;
+const points = Array.from({length: POINT_COUNT}, (item, index) => generatePoint(index));
+
 
 const mainContainer = document.querySelector('.trip-main');
 const navigationContainer = document.querySelector('.trip-controls__navigation');
