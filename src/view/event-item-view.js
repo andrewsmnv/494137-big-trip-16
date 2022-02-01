@@ -1,6 +1,24 @@
 import { renderEventOfferTemplate } from './event-offer-template';
-import dayjs from 'dayjs';
+import { getDuration } from '../mock/point';
+import { Format } from '../const/time-format';
 import AbstractView from './abstract-view';
+import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
+dayjs.extend(duration);
+
+
+const getFormattedDuration = (startDate, finishDate) => {
+  const eventDuration = getDuration(startDate, finishDate);
+  const wrappedDuration = dayjs.duration(eventDuration);
+
+  if (eventDuration < dayjs.duration(1, 'hours').asMilliseconds()) {
+    return wrappedDuration.format(Format.MIN_W_CHAR);
+  } else if (eventDuration < dayjs.duration(1, 'days').asMilliseconds()) {
+    return wrappedDuration.format(Format.TIME_W_CHAR);
+  }
+
+  return wrappedDuration.format(Format.DATE_W_CHAR);
+};
 
 const renderEventOffers = (offers) => {
   if (!offers.length) {
@@ -30,7 +48,7 @@ const renderEventItemTemplate = (point) => {
           &mdash;
           <time class="event__end-time" datetime="${dayjs(dateTo).format() }">${dayjs(dateTo).format('hh:mm') }</time>
         </p>
-        <p class="event__duration">${dayjs(dateTo).diff(dateFrom, 'hour') }H</p>
+        <p class="event__duration">${getFormattedDuration(dateFrom, dateTo)}</p>
       </div>
       <p class="event__price">
         &euro;&nbsp;<span class="event__price-value">${basePrice}</span>
