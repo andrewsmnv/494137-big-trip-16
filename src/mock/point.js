@@ -30,3 +30,25 @@ export const generatePoint = (index) => {
     'type': type
   };
 };
+
+export function getDuration(startDate, finishDate) {
+  return dayjs(finishDate).diff(dayjs(startDate));
+}
+
+export function sortByPrice (a, b) {
+  const aPrice = a.basePrice;
+  const bPrice = b.basePrice;
+
+  return bPrice - aPrice;
+}
+
+export function sortByDate (a, b) {
+  return a.dateFrom - b.dateFrom;
+}
+
+export function sortByDuration (a, b) {
+  const aDuration = getDuration(a.dateFrom, a.dateTo);
+  const bDuration = getDuration(b.dateFrom, b.dateTo);
+
+  return bDuration - aDuration;
+}
